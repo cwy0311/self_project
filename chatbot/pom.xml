@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.4.1</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.chatbot</groupId>
+	<artifactId>chatbot</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>SuperstitionBot</name>
+	<description>Superstition Bot</description>
+
+	<profiles>
+	    <profile>
+	        <id>main</id>
+	        <properties>
+	          <spring.boot.mainclass>com.chatbot.superstitionbot.bot.Main</spring.boot.mainclass>
+	        </properties>
+	    </profile>
+	</profiles>
+
+
+	<properties>
+		<java.version>1.8</java.version>
+		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+		  <groupId>com.github.program_in_chinese</groupId>
+		  <artifactId>junit4_in_chinese</artifactId>
+		  <version>0.0.1</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.telegram</groupId>
+		    <artifactId>telegrambots</artifactId>
+		    <version>4.4.0.1</version>
+		</dependency>
+				
+		<dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-web</artifactId>
+	    </dependency>
+
+		<dependency>
+		    <groupId>log4j</groupId>
+		    <artifactId>log4j</artifactId>
+		    <version>1.2.17</version>
+		</dependency>
+
+		<dependency>
+		  <groupId>com.github.nobodxbodon</groupId>
+		  <artifactId>zhconverter</artifactId>
+		  <version>0.0.5</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.jsoup</groupId>
+		    <artifactId>jsoup</artifactId>
+		    <version>1.13.1</version>
+		</dependency>
+				
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			    <executions>
+			      <execution>
+			        <goals>
+			          <goal>repackage</goal>
+			        </goals>
+			        <configuration>
+			          <mainClass>${spring.boot.mainclass}</mainClass>
+			        </configuration>
+			      </execution>
+			    </executions>
+
+			
+				<configuration>
+		            <assembleDirectory>target</assembleDirectory>
+		            <programs>
+		                <program>
+		                    <mainClass>Main</mainClass>
+		                    <name>launchTelegramBot</name>
+		                </program>
+		            </programs>
+		          </configuration>
+          
+			</plugin>
+		</plugins>
+	</build>
+
+
+
+</project>
